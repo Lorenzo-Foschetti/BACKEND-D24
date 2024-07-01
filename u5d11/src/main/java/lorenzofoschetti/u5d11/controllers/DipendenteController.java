@@ -1,14 +1,9 @@
 package lorenzofoschetti.u5d11.controllers;
 
 import lorenzofoschetti.u5d11.entities.Dipendente;
-import lorenzofoschetti.u5d11.exceptions.BadRequestException;
-import lorenzofoschetti.u5d11.payloads.NewDipendentePayload;
 import lorenzofoschetti.u5d11.services.DipendenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,17 +23,6 @@ public class DipendenteController {
         return this.dipendenteService.getDipendentiList(page, size, sortBy);
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-
-    private Dipendente saveDipendente(@RequestBody @Validated NewDipendentePayload body, BindingResult validationResult) {
-
-        if (validationResult.hasErrors()) {
-
-            throw new BadRequestException(validationResult.getAllErrors());
-        }
-        return dipendenteService.save(body);
-    }
 
     @GetMapping("/{dipendenteId}")
     public Dipendente findById(@PathVariable UUID dipendenteId) {

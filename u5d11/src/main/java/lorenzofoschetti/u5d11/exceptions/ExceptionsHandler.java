@@ -33,4 +33,11 @@ public class ExceptionsHandler {
     public ErrorsPayload handleNotFound(NotFoundException ex) {
         return new ErrorsPayload(ex.getMessage(), LocalDateTime.now());
     }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    // Questo metodo dovrà rispondere con 401
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ErrorsPayload handleUnauthorized(UnauthorizedException ex) {
+        return new ErrorsPayload(ex.getMessage(), LocalDateTime.now());
+    }
 }
