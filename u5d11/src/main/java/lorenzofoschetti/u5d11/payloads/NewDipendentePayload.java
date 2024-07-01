@@ -11,6 +11,8 @@ public record NewDipendentePayload(
         @NotEmpty(message = "Lo username è obbligatorio!")
         String username,
         @NotEmpty(message = "L'email è obbligatoria!")
-        String email
+        String email,
+        @NotEmpty(message = "Devi inserire la password")
+        String password
 ) {
 }

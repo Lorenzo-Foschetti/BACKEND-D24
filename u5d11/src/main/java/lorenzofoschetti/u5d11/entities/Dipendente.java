@@ -30,10 +30,13 @@ public class Dipendente {
 
     private String avatar;
 
-    public Dipendente(String name, String surname, String username, String email) {
+    private String password;
+
+    public Dipendente(String name, String surname, String username, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.username = username;
         this.email = email;
+        this.password = password;
     }
 }

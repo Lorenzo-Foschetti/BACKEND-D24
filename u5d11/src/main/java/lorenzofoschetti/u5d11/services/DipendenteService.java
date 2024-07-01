@@ -44,7 +44,7 @@ public class DipendenteService {
         );
 
 
-        Dipendente newDipendente = new Dipendente(body.name(), body.surname(), body.username(), body.email());
+        Dipendente newDipendente = new Dipendente(body.name(), body.surname(), body.username(), body.email(), body.password());
 
         newDipendente.setAvatar("https://ui-avatars.com/api/?name=" + body.name() + "+" + body.surname());
 
